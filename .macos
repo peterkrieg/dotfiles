@@ -1,4 +1,10 @@
 
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
+# Disable transparency in the menu bar and elsewhere on Yosemite
+defaults write com.apple.universalaccess reduceTransparency -bool true
+
 # Enable "natural" scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
@@ -16,6 +22,21 @@ defaults write com.apple.Dock autohide-delay -float 2000000000
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+
+# Stop iTunes from responding to the keyboard media keys
+#launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+
+# Disable automatic termination of inactive apps
+defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 
 
 # Disable automatic capitalization as it’s annoying when typing code
@@ -34,6 +55,39 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 
+
+# added 4-6-20
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# System Preferences > Keyboard >
+defaults write NSGlobalDomain KeyRepeat -int 2
+
+# System Preferences > Keyboard >
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+# System Preferences > Trackpad > Tap to click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+
+# System Preferences > Accessibility > Mouse & Trackpad > Trackpad Potions
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+
+defaults write com.apple.AppleMultitouchTrackpad Dragging -bool false
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Dragging -bool false
+
+# System Preferences > Desktop & Screen Saver > Start after: Never
+defaults -currentHost write com.apple.screensaver idleTime -int 0
+
+
+# Increase sound quality for Bluetooth headphones/headsets
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+
+
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
@@ -43,6 +97,12 @@ defaults write com.apple.finder QuitMenuItem -bool true
 
 # show hidden files
 defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# Finder > Preferences > Show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Finder > Preferences > Show warning before changing an extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Finder: disable window animations and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true
@@ -64,11 +124,30 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 # Disable the warning before emptying the Trash
 # defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-# Show the ~/Library folder
-chflags nohidden ~/Library
-
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
+
+# Show the ~/Library folder
+chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+
+# Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+
+
+###############################################################################
+# Screen                                                                      #
+###############################################################################
+
+# Save screenshots to the desktop
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+
+# Disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #
@@ -96,6 +175,18 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 
 
 
+# stop photos from opening automatically when you plug an iphone/ipad into comp
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+###############################################################################
+# Google Chrome
+###############################################################################
+
+# Use the system-native print preview dialog
+defaults write com.google.Chrome DisablePrintPreview -bool true
+
+# Expand the print dialog by default
+defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
