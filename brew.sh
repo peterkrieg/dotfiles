@@ -29,5 +29,5 @@ brew install git
 #################################################
 brew install --cask spotify flycut iterm2 postman tableplus slack visual-studio-code
 brew install --cask docker anki caffeine flux github karabiner-elements
-brew install --cask rocket tor-browser vlc
+brew install --cask rocket tor-browser vlc notion
 brew install --cask zoom alfred calibre fantastical discord
