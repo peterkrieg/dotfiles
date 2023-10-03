@@ -22,12 +22,12 @@ brew install --cask google-chrome firefox opera
 brew install node@20 nodenv
 
 # confirm that git installed from brew will override whatever comes on mac?
-brew install git
+brew install git cloc
 
 #################################################
 #  Applications I use
 #################################################
 brew install --cask spotify flycut iterm2 postman tableplus slack visual-studio-code
 brew install --cask docker anki caffeine flux github karabiner-elements
-brew install --cask rocket tor-browser vlc notion
+brew install --cask rocket tor-browser vlc notion 
 brew install --cask zoom alfred calibre fantastical discord
