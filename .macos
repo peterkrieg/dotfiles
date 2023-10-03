@@ -101,6 +101,9 @@ defaults write com.apple.finder QuitMenuItem -bool true
 # show hidden files
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
+#  This seems to force show hidden files in open menus (ie, opening file from vscode)
+defaults write -g AppleShowAllFiles -bool true
+
 # Finder > Preferences > Show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
