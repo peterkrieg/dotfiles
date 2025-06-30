@@ -17,9 +17,7 @@ brew install --cask google-chrome firefox opera
 #################################################
 #  Development Related
 #################################################
-# Use nodenv instead of nvm for managing node versions
-# nvm causes some delay on script startup (when opening new terminal sessions)
-brew install node@20 nodenv
+brew install asdf
 
 # confirm that git installed from brew will override whatever comes on mac?
 brew install git cloc
@@ -27,7 +25,7 @@ brew install git cloc
 #################################################
 #  Applications I use
 #################################################
-brew install --cask spotify flycut iterm2 postman tableplus slack visual-studio-code
-brew install --cask docker anki caffeine flux github karabiner-elements
-brew install --cask rocket tor-browser vlc notion 
-brew install --cask zoom alfred calibre fantastical discord
+brew install --cask spotify iterm2 warp  postman tableplus slack visual-studio-code cursor
+brew install --cask anki caffeine github karabiner-elements
+brew install --cask rocket notion 
+brew install --cask zoom raycast cleanshot fantastical discord
