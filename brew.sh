@@ -27,5 +27,5 @@ brew install git cloc
 #################################################
 brew install --cask spotify iterm2 warp  postman tableplus slack visual-studio-code cursor
 brew install --cask anki caffeine github karabiner-elements
-brew install --cask rocket notion rectangle
+brew install --cask rocket notion rectangle 1password
 brew install --cask zoom raycast cleanshot fantastical discord
