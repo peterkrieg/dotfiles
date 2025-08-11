@@ -196,6 +196,13 @@ defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 
 
 
+###############################################################################
+# Random additions
+###############################################################################
+# 8/11/25: Disable stage manager (new mac setting that is really annoying)
+defaults write com.apple.WindowManager GloballyEnabled -bool false
+
+
 
 ###############################################################################
 # Kill affected applications                                                  #
