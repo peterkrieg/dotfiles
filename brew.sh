@@ -25,7 +25,7 @@ brew install git cloc
 #################################################
 #  Applications I use
 #################################################
-brew install --cask spotify iterm2 warp  postman tableplus slack visual-studio-code cursor
+brew install --cask spotify ghostty@tip warp  postman tableplus slack visual-studio-code cursor
 brew install --cask anki github karabiner-elements
 brew install --cask rocket notion 1password
 brew install --cask zoom raycast cleanshot fantastical discord
