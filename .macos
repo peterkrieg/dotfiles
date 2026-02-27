@@ -202,6 +202,9 @@ defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 # 8/11/25: Disable stage manager (new mac setting that is really annoying)
 defaults write com.apple.WindowManager GloballyEnabled -bool false
 
+# Disable click desktop to hide windows
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -int 0
+
 
 
 ###############################################################################
